@@ -10,9 +10,9 @@ const listProductCategoryService = async (id) => {
           cat.name category
         FROM
           products pd
-          JOIN categories cat ON cat.id = pd.category_id
+          LEFT JOIN categories cat ON cat.id = pd.category_id
         WHERE
-          cat.id = $1;         
+          category_id = $1;         
         `,
       [id]
     );

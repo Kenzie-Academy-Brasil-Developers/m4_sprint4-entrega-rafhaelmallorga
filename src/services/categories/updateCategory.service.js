@@ -15,6 +15,10 @@ const updateCategoryService = async (id, name) => {
       [name, id]
     );
 
+    if (!res.rowCount) {
+      throw new Error("Category not found");
+    }
+
     return res.rows[0];
   } catch (error) {
     throw new Error(error);

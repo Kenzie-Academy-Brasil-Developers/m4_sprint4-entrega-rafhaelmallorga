@@ -13,6 +13,10 @@ const deleteProductService = async (id) => {
       [id]
     );
 
+    if (!res.rowCount) {
+      throw new Error("Product not found");
+    }
+
     return res.rows[0];
   } catch (error) {
     throw new Error(error);

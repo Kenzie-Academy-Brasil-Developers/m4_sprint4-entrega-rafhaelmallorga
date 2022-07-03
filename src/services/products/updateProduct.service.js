@@ -17,6 +17,10 @@ const updateProductService = async (id, data) => {
       [data.name, data.price, data.category_id, id]
     );
 
+    if (!res.rowCount) {
+      throw new Error("Product not found");
+    }
+
     return res.rows[0];
   } catch (error) {
     throw new Error(error);
