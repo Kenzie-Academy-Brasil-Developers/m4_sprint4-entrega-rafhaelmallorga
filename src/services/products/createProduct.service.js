@@ -11,7 +11,7 @@ const createProductService = async (data) => {
                 ($1, $2, $3, $4)
             RETURNING *;
         `,
-      [uuid(), data.name, data.price, data.category]
+      [uuid(), data.name, data.price, data.category_id]
     );
 
     return res.rows[0];
